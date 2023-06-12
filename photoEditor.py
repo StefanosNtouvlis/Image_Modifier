@@ -11,8 +11,9 @@ for filename in os.listdir(path):
     # edges_smooth = img_gray_smooth.filter(ImageFilter.FIND_EDGES)
 
     sharpened = img.filter(ImageFilter.SHARPEN)
+    detailed = sharpened.filter(ImageFilter.DETAIL)
 
-    enhancer = ImageEnhance.Contrast(sharpened)
+    enhancer = ImageEnhance.Contrast(detailed)
     enhanced = enhancer.enhance(factor=1.5)
 
     brightener = ImageEnhance.Brightness(enhanced)
